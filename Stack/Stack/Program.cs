@@ -60,7 +60,7 @@ namespace Stack
         static void Main(string[] args)
         {
 
-            var stack = new Stack<int>(4);
+            var stack = new Stack<int>(100);
             stack.Push(1);
             stack.Push(2);
             Console.WriteLine(stack.Capacity);

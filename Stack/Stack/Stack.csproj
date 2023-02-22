@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+	<PropertyGroup>
+		<PackageId>lleprechaun.PowerCollection</PackageId>
+		<Authors>lleprechaun</Authors>
+		<Version>0.0.3-beta</Version>
+		<RepositoryUrl>https://github.com/lleprechaun/DevTools_lab02</RepositoryUrl>
+	</PropertyGroup>
 </Project>

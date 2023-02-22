@@ -1,2 +1,2 @@
 dotnet pack --configuration Release
-dotnet nuget push C:\Users\lerae\Desktop\DevTools_lab02\PowerCollections\PowerCollections\bin\Release\lleprechaun.PowerCollection.0.0.2-beta.nupkg --api-key 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 --source "https://nuget.pkg.github.com/lleprechaun/index.json"
+dotnet nuget push C:\Users\lerae\Desktop\DevTools_lab02\PowerCollections\PowerCollections\bin\Release\lleprechaun.PowerCollection.*.nupkg --api-key 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 --source "https://nuget.pkg.github.com/lleprechaun/index.json"
