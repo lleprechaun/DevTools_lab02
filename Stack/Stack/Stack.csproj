@@ -1,16 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>netstandard2.1</TargetFramework>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<Deterministic>false</Deterministic>
-	</PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
 	<PropertyGroup>
 		<PackageId>lleprechaun.PowerCollection</PackageId>
 		<Authors>lleprechaun</Authors>
-		<Version>0.0.2-beta</Version>
+		<Version>0.0.3-beta</Version>
 		<RepositoryUrl>https://github.com/lleprechaun/DevTools_lab02</RepositoryUrl>
 	</PropertyGroup>
-
 </Project>
