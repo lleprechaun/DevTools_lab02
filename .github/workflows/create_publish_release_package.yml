@@ -27,7 +27,7 @@ jobs:
       working-directory: PowerCollections
       
     - name: publish
-      run: dotnet nuget push ".\PowerCollections\bin\Release\lleprechaun.PowerCollection.*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/lleprechaun/index.json"
+      run: dotnet nuget push ".\PowerCollections\bin\Release\lleprechaun.PowerCollection.*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/lleprechaun/index.json" --skip-duplicate
       working-directory: PowerCollections
       
     - name: get xml
