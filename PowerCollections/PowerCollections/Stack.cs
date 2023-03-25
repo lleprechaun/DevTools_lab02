@@ -12,7 +12,7 @@ namespace Wintellect.PowerCollections
         //конструктор с параметром, задающим размер внутреннего хранилища
         // по дефолту стек создается с макс размером 10
         public Stack()
-        {
+        
             array = new T[defaultLength];
         }
         //стек с заданной длиной
