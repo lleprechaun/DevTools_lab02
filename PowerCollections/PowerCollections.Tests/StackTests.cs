@@ -74,7 +74,6 @@ namespace Wintellect.PowerCollections.Tests
             stack.Push("AAA");
             stack.Push("BBB");
             stack.Push("CCC");
-            stack.Push("BROKE");
             Assert.AreEqual("CCC", stack.Pop());
             Assert.AreEqual("BBB", stack.Top());
             Assert.AreEqual(2, stack.Count);
