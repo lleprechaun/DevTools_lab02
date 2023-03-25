@@ -9,7 +9,7 @@
 	<PropertyGroup>
 		<PackageId>lleprechaun.PowerCollection</PackageId>
 		<Authors>lleprechaun</Authors>
-		<Version>0.0.2-beta</Version>
+		<Version>0.0.3-beta</Version>
 		<RepositoryUrl>https://github.com/lleprechaun/DevTools_lab02</RepositoryUrl>
 	</PropertyGroup>
 
