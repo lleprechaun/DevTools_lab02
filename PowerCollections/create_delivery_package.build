@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTarget="Build">
+    <Import Project="MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+
+    <PropertyGroup>
+        <IgnoreTestsResults>false</IgnoreTestsResults>
+        <Configuration>Release</Configuration>
+        <AddSourceCode>true</AddSourceCode>
+    </PropertyGroup>
+
+    <Target Name="Build">
+        <Exec Command="dotnet test" WorkingDirectory="$(MSBuildProjectDirectory)\PowerCollections.Tests" ContinueOnError="$(IgnoreTestsResults)" />
+        <Exec Command="docfx docfx_project\docfx.json -t statictoc" />
+        <Version VersionFile="version.txt" BuildType="Increment" RevisionType="None">
+            <Output TaskParameter="Major" PropertyName="Major" />
+            <Output TaskParameter="Minor" PropertyName="Minor" />
+            <Output TaskParameter="Build" PropertyName="Build" />
+            <Output TaskParameter="Revision" PropertyName="Revision" />
+        </Version>
+        <Exec Command="dotnet pack $(MSBuildProjectDirectory)\PowerCollections\PowerCollections.csproj -c $(Configuration) -p:PackageVersion=$(Major).$(Minor).$(Build)" />
+        <ItemGroup>
+            <Product Include="PowerCollections\bin\$(Configuration)\lleprechaun.PowerCollections.$(Major).$(Minor).$(Build).nupkg" />
+            <Docs Include="docfx_project\docs\**\*.*" />
+            <SourceCode Include="PowerCollections\**"
+                Exclude="PowerCollections\bin\**;PowerCollections\obj\**;PowerCollections\.vs\**"
+                Condition="$(AddSourceCode) == 'true'" />
+        </ItemGroup>
+        <PropertyGroup>
+            <PackDirectory>lleprechaun.PowerCollections_$([System.DateTime]::Now.ToString(yyyyMMdd))_$(Major).$(Minor).$(Build)</PackDirectory>
+        </PropertyGroup>
+        <Copy SourceFiles="@(Product)" DestinationFolder="$(PackDirectory)\bin\%(RecursiveDir)" />
+        <Copy SourceFiles="@(Docs)" DestinationFolder="$(PackDirectory)\doc\%(RecursiveDir)" />
+        <Copy SourceFiles="@(SourceCode)" DestinationFolder="$(PackDirectory)\src\%(RecursiveDir)" Condition="$(AddSourceCode) == 'true'" />
+        <ZipDirectory SourceDirectory="$(PackDirectory)" Overwrite="true" DestinationFile="$(MSBuildProjectDirectory)\$(PackDirectory).zip" />
+        <RemoveDir Directories="$(PackDirectory)" />
+    </Target>
+</Project>
